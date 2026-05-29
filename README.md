@@ -67,6 +67,103 @@ Instructions
 4. Examine the code around that location.
 5. Determine the likely cause of the error.
 6. Apply a fix and confirm that the program runs successfully.
+  
+sample code to debug found in reading.py
+  
+---
 
-code found in reading.py
+## 1. Debugging with print()
+  
+Objective
+  
+Use strategic ```print()``` statements to inspect values and understand how program execution leads to incorrect behavior.
+  
+Scenario
+  
+Not all bugs cause a crash. Sometimes a program runs successfully but produces incorrect results.
+  
+In these situations, developers often begin debugging by temporarily adding ```print()``` statements to inspect:
+- input values
+- intermediate calculations
+- decision points in the code
+- unexpected variable states
+  
+This approach helps reveal where the program begins to behave incorrectly.
+  
+Instructions
+  
+1. Run the provided program and observe the incorrect output.
+2. Identify the function responsible for producing the result.
+3. Add temporary ```print()``` statements to inspect:
+    - input parameters
+    - intermediate variable values
+    - conditional branches
+4. Run the program again and analyze the output.
+5. Determine where the logic diverges from the expected behavior.
+6. Fix the bug.
+7. Remove unnecessary debugging prints once the issue is resolved.
+  
+sample code to debug found in print.py
+  
+---
 
+# 2. First Steps with `pdb`
+  
+Objective
+  
+Use the Python debugger (```pdb```) to pause execution, inspect variables, and step through code.
+  
+Scenario
+  
+While ```print() statements can be useful, they are limited. In more complex situations, developers use debugging tools that allow them to pause execution and inspect program state interactively.
+  
+Python includes a built-in debugger called pdb. It allows you to:
+- pause program execution
+- inspect variables
+- step through code line by line
+- continue execution after inspection
+  
+Instructions
+  
+1. Identify a suitable location in the provided program to start debugging.
+2. Insert a breakpoint using either:
+```
+breakpoint()
+```
+or
+```
+import pdb; pdb.set_trace()
+```
+3. Run the program.
+4. When execution stops, use the debugger commands to explore the program state.
+5. Inspect variables involved in the incorrect behavior.
+6. Step through the code to observe how values change.
+7. Identify the source of the bug.
+8. Apply a fix and confirm that the program works correctly.
+
+sample code to debug found in pdb.py
+  
+---
+  
+## 3. Following the Data
+  
+Objective
+  
+Trace how data flows across multiple functions to locate the origin of a bug.
+  
+Scenario
+  
+In many programs, the place where a bug appears is not the place where it originates. Incorrect data may be introduced earlier in the execution and only cause visible problems later.
+  
+Debugging often requires following the flow of data through multiple functions to determine where the incorrect state first appears.
+  
+Instructions
+1. Run the provided program and observe the incorrect behavior.
+2. Identify the function where the incorrect result becomes visible.
+3. Trace the origin of the values used by that function.
+4. Follow the sequence of function calls that produce the data.
+5. Use debugging techniques such as:
+    - ```print()``` inspection
+    - ```pdb``` stepping
+6. Determine where the incorrect value is first introduced.
+7. Fix the bug at its true source rather than only addressing the visible symptom.
